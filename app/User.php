@@ -80,7 +80,7 @@ class User extends Authenticatable
         {
             $user_ids = compact('user_ids');
         }
-        $this->followings()->sync($user_ids,false);
+        return $this->followings()->sync($user_ids,false);
     }
 
     public function unfollow($user_ids)
@@ -88,7 +88,7 @@ class User extends Authenticatable
         if( !is_array($user_ids) ){
             $user_ids = compact('user_ids');
         }
-        $this->followings()->detach($user_ids);
+        return $this->followings()->detach($user_ids);
     }
 
     public function isFollowing($user_id)
